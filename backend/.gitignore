@@ -2,3 +2,8 @@
 // environment variables secured
 
 .env
+
+
+//modules
+
+node_modules
