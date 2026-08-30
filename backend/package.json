@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "argon2": "^0.45.1",
+    "cloudinary": "^2.11.0",
     "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.9.3"
+    "mongoose": "^9.9.3",
+    "multer": "^2.2.0"
   }
 }
