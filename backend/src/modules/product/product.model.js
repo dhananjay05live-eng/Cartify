@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const productSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:trusted
+        required:true,
     },
     description:{
         type:String,
@@ -20,10 +20,26 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    images:{
-        type:[String],
-        required:true,
-        message:"atleas one url required"
+    images: {
+        type: [
+            {
+                publicId: {
+                    type: String,
+                    required: true
+                },
+                url: {
+                    type: String,
+                    required: true
+                }
+            }
+        ],
+        required: true,
+        validate: {
+            validator: function (value) {
+                return value.length >= 1;
+            },
+            message: "At least one image is required"
+        }
     },
     isActive:{
         type:Boolean,
@@ -32,12 +48,10 @@ const productSchema = new mongoose.Schema({
     categoryID:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Category",
-        required:trusted
     },
     sellerID:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Seller",
-        required:true
     }
 },{timestamps:true});
 

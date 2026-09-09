@@ -28,6 +28,12 @@ const userSchema = new mongoose.Schema(
         profilePicture: {
             type: imageSchema,
         },
+        role: {
+            type: String,
+            enum: ["user", "seller", "admin"],
+            required: true,
+            default: "user",
+        },
         refreshToken: {
             type: String,
         },
